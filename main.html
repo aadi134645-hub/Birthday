@@ -19,9 +19,19 @@
 </head>
 
 <body>
-    <audio  autoplay loop>
-        <source src="Tum Ho Toh.mp3" type="audio/wav">
-      </audio>
+   <script>
+        document.addEventListener('click', function() {
+            var audio = new Audio('Tum Ho Toh.mp3');
+            
+            audio.loop = true; // Enables continuous looping
+            
+            // Starts playback
+            audio.play().catch(function(error) {
+                console.log("Browser blocked autoplay until further interaction:", error);
+            });
+            
+        }, { once: true }); // '{ once: true }' ensures the music only starts on the FIRST click
+    </script>
       
     <div id="wrapper">
         <div class="flag__birthday">
@@ -309,3 +319,4 @@ I love you so much
 </script>
 
 </html>
+
